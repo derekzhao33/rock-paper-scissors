@@ -2,18 +2,19 @@ var humanScore = 0;
 var computerScore = 0;
 
 function getComputerChoice() {
-  var choice = Math.random(3);
+  var choice = Math.floor(Math.random(3) * 3);
+  console.log(choice);
 
   if (choice == 0) {
-    return "rock";
+    return "Rock";
   }
 
   if (choice == 1) {
-    return "paper";
+    return "Paper";
   }
 
   if (choice == 2) {
-    return "scissors";
+    return "Scissors";
   }
 }
 
@@ -30,8 +31,7 @@ function displayAsLoser(yourChoice, opponentChoice) {
 }
 
 function playRound(humanChoice, computerChoice) {
-  humanChoice = humanChoice[0].toUpperCase + humanChoice.slice(1).toLowerCase;
-  computerChoice = computerChoice[0].toUpperCase + computerChoice.slice(1).toLowerCase;
+  humanChoice = humanChoice[0].toUpperCase() + humanChoice.slice(1).toLowerCase();
 
   if (humanChoice == computerChoice) {
     console.log("Tie! No score added")
@@ -85,3 +85,9 @@ function choosePaper(opponentChoice) {
     computerScore++;
   }
 }
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+console.log(computerSelection);
+
+playRound(humanSelection, computerSelection);
