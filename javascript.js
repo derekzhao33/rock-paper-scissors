@@ -53,29 +53,35 @@ function playRound(humanChoice, computerChoice) {
 function chooseRock(opponentChoice) {
   if (opponentChoice == "Scissors") {
     displayAsWinner("Rock", opponentChoice);
+    humanScore++;
   }
 
   if (opponentChoice == "Paper") {
     displayAsLoser("Rock", opponentChoice);
+    computerScore++;
   }
 }
 
 function chooseScissors(opponentChoice) {
   if (opponentChoice == "Paper") {
     displayAsWinner("Scissors", opponentChoice);
+    humanScore++;
   }
 
   if (opponentChoice == "Rock") {
     displayAsLoser("Scissors", opponentChoice);
+    computerScore++;
   }
 }
 
 function choosePaper(opponentChoice) {
   if (opponentChoice == "Rock") {
     displayAsWinner("Paper", opponentChoice);
+    humanScore++;
   }
 
   if (opponentChoice == "Scissors") {
     displayAsLoser("Paper", opponentChoice);
+    computerScore++;
   }
 }
