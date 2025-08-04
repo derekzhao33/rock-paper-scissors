@@ -1,10 +1,15 @@
 var humanScore = 0;
 var computerScore = 0;
 
+var humanDisplayScore = document.querySelector(".player");
+var computerDisplayScore = document.querySelector(".cpu");
+
+const rock = document.querySelector(".rock");
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
 
 function getComputerChoice() {
   var choice = Math.floor(Math.random(3) * 3);
-  console.log(choice);
 
   if (choice == 0) {
     return "Rock";
@@ -24,11 +29,11 @@ function getHumanChoice() {
 }
 
 function displayAsWinner(yourChoice, opponentChoice) {
-  console.log("You win! " + yourChoice + " beats " + opponentChoice)
+  alert("You win! " + yourChoice + " beats " + opponentChoice)
 }
 
 function displayAsLoser(yourChoice, opponentChoice) {
-  console.log("You lose! " + opponentChoice + " beats " + yourChoice);
+  alert("You lose! " + opponentChoice + " beats " + yourChoice);
 }
 
 function chooseRock(opponentChoice) {
@@ -71,7 +76,7 @@ function playRound(humanChoice, computerChoice) {
   humanChoice = humanChoice[0].toUpperCase() + humanChoice.slice(1).toLowerCase();
 
   if (humanChoice == computerChoice) {
-    console.log("Tie! No score added");
+    alert("Tie! No score added");
   }
 
   if (humanChoice == "Rock") {
@@ -86,19 +91,18 @@ function playRound(humanChoice, computerChoice) {
     choosePaper(computerChoice);
   }
 
-  console.log("You: " + humanScore + ", Computer: " + computerScore)
-}
-
-const rock = document.querySelector(".rock");
-const paper = document.querySelector('.paper');
-const scissors = document.querySelector('.scissors');
+  humanDisplayScore.textContent = "Player: " + humanScore;
+  computerDisplayScore.textContent = "CPU: " + computerScore;
+}  
 
 rock.addEventListener("click", () => {
   playRound("Rock", getComputerChoice());
 });
+
 paper.addEventListener("click", () => {
   playRound("Paper", getComputerChoice());
 });
+
 scissors.addEventListener("click", () => {
   playRound("Scissors", getComputerChoice());
 });
