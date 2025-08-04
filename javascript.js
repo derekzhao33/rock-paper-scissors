@@ -72,6 +72,24 @@ function choosePaper(opponentChoice) {
   }
 }
 
+function checkWinner() {
+  if (humanScore >= 5) {
+    alert("You win the game!")
+    humanScore = 0;
+    computerScore = 0;
+
+    humanDisplayScore.textContent = "Player: " + humanScore;
+    computerDisplayScore.textContent = "CPU: " + computerScore;
+  } else if (computerScore >= 5) {
+    alert("You lose the game!")
+    humanScore = 0;
+    computerScore = 0;
+
+    humanDisplayScore.textContent = "Player: " + humanScore;
+    computerDisplayScore.textContent = "CPU: " + computerScore;
+  }
+}
+
 function playRound(humanChoice, computerChoice) {
   humanChoice = humanChoice[0].toUpperCase() + humanChoice.slice(1).toLowerCase();
 
@@ -93,6 +111,8 @@ function playRound(humanChoice, computerChoice) {
 
   humanDisplayScore.textContent = "Player: " + humanScore;
   computerDisplayScore.textContent = "CPU: " + computerScore;
+
+  checkWinner();
 }  
 
 rock.addEventListener("click", () => {
