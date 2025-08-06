@@ -1,15 +1,15 @@
-var humanScore = 0;
-var computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
-var humanDisplayScore = document.querySelector(".player");
-var computerDisplayScore = document.querySelector(".cpu");
+let humanDisplayScore = document.querySelector(".player");
+let computerDisplayScore = document.querySelector(".cpu");
 
 const rock = document.querySelector(".rock");
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 
 function getComputerChoice() {
-  var choice = Math.floor(Math.random(3) * 3);
+  let choice = Math.floor(Math.random(3) * 3);
 
   if (choice == 0) {
     return "Rock";
